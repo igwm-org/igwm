@@ -1,22 +1,50 @@
+/* =========================
+   Integrated Groundwater Header
+   Replace your whole styles.css with this
+   ========================= */
+
 /* Reset */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ====== Easy sizing controls ====== */
+:root{
+  /* Text sizes */
+  --title-size: clamp(24px, 2.4vw, 40px);
+  --nav-size: 14px;
+
+  /* Logo sizes */
+  --left-logo-width: 90px;   /* droplet */
+  --right-logo-height: 46px; /* NSF EPSCoR */
+
+  /* Spacing */
+  --header-padding-y: 16px;
+  --header-padding-x: 26px;
+  --title-bottom-gap: 10px;
+  --nav-gap: 24px;
+
+  /* Colors */
+  --purple-1: #0f0032;
+  --purple-2: #1b0044;
+  --purple-3: #240052;
+}
 
 /* Purple header bar */
 .topbar{
-  background: linear-gradient(90deg, #0f0032 0%, #1b0044 50%, #240052 100%);
+  background: linear-gradient(90deg, var(--purple-1) 0%, var(--purple-2) 50%, var(--purple-3) 100%);
   color: #fff;
 }
 
-/* Layout: left logo | center title+nav | right logo */
+/* Layout: left | center | right */
 .topbar-inner{
   max-width: 1400px;
   margin: 0 auto;
-  padding: 16px 22px;
+  padding: var(--header-padding-y) var(--header-padding-x);
   display: grid;
-  grid-template-columns: 140px 1fr 260px;
+  grid-template-columns: auto 1fr auto; /* <- logos stay at ends */
   align-items: center;
-  gap: 16px;
+  column-gap: 18px;
 }
 
 /* Left */
@@ -26,9 +54,8 @@ html, body { margin: 0; padding: 0; }
   justify-content: flex-start;
 }
 .logo-left{
-  width: 84px;
+  width: var(--left-logo-width);
   height: auto;
-  display: block;
 }
 
 /* Center */
@@ -38,35 +65,38 @@ html, body { margin: 0; padding: 0; }
 .title{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
-  letter-spacing: .2px;
-  font-size: clamp(22px, 2.2vw, 38px);
-  line-height: 1.15;
-  margin-bottom: 10px;
+  letter-spacing: .3px;
+  font-size: var(--title-size);
+  line-height: 1.12;
+  margin: 0 0 var(--title-bottom-gap);
+  text-shadow: 0 1px 0 rgba(0,0,0,.25);
 }
 
 .nav{
   display: flex;
   justify-content: center;
-  gap: 24px;
+  align-items: center;
+  gap: var(--nav-gap);
   flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: var(--nav-size);
   font-weight: 600;
 }
 .nav a{
-  color: #ffffff;
+  color: rgba(255,255,255,.95);
   text-decoration: none;
   padding: 6px 2px;
 }
 .nav a:hover{
+  color: #fff;
   text-decoration: underline;
 }
 
 /* Right */
 .right{
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
 }
 .logo-pill{
   background: #fff;
@@ -74,27 +104,34 @@ html, body { margin: 0; padding: 0; }
   padding: 10px 14px;
   display: inline-flex;
   align-items: center;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
 }
 .logo-right{
-  height: 48px;
+  height: var(--right-logo-height);
   width: auto;
-  display: block;
 }
 
-/* Light strip under header */
+/* Light strip below header */
 .divider{
   height: 12px;
   background: #f2f2f2;
 }
 
-/* Responsive (stack nicely on small screens) */
-@media (max-width: 900px){
+/* ===== Responsive ===== */
+@media (max-width: 950px){
   .topbar-inner{
     grid-template-columns: 1fr;
+    row-gap: 12px;
     justify-items: center;
     text-align: center;
   }
+
   .left, .right{
     justify-content: center;
+  }
+
+  :root{
+    --nav-gap: 14px;
+    --header-padding-y: 14px;
   }
 }
