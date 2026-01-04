@@ -212,3 +212,66 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 8px;
 }
 
+/* =========================
+   CONTENT SECTIONS
+   ========================= */
+
+.content-section{
+  padding: 72px 0;
+  background: #ffffff;
+}
+
+.content-section.alt{
+  background: #fafafa;
+}
+
+.content-inner{
+  width: min(900px, calc(100% - 48px));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-inner h2{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #333;
+}
+
+.content-inner p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+  margin: 0;
+}
+
+/* =========================
+   CTA SECTION
+   ========================= */
+
+.cta-section{
+  padding: 80px 0 96px;
+  background: #ffffff;
+}
+
+.cta-text{
+  margin: 0 0 32px;
+  font-size: 18px;
+  color: #444;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer{
+  padding: 28px 0 36px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #666;
+  background: #f7f7f7;
+}
+
